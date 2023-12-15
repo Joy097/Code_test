@@ -15,9 +15,15 @@
 <div id="search-add-wrapper">
     <form method="GET" style="display: flex;">
         <input type='text' name='search-area' placeholder="Search your task" value="{{search_input}}">
+        <select name="priority">
+          <option selected disabled=true>--Select Priority--</option>
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
         <input class="button" type="submit" value='Search'>
-        <a style="margin-left:20px"class="button" href="{% url 'task-create' %}">+</a>
     </form>
+    <a class="addbutton" href="{% url 'task-create' %}">+</a>
 </div>
 
 

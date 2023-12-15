@@ -50,6 +50,7 @@ class Tasklist(LoginRequiredMixin,ListView):
             context['tasks'] = context['tasks'].filter(
                 title__contains=search_input)
 
+        context['tasks'] = context['tasks'].order_by('priority')
         context['search_input'] = search_input
 
         return context
