@@ -56,7 +56,7 @@ class Tasklist(LoginRequiredMixin,ListView):
             
         selected_cmp = self.request.GET.get('cmp')
         if selected_cmp:
-            context['tasks'] = context['tasks'].filter(complete=selected_priority)
+            context['tasks'] = context['tasks'].filter(complete=selected_cmp)
 
         context['tasks'] = context['tasks'].order_by('priority')
         context['search_input'] = search_input

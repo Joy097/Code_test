@@ -27,6 +27,16 @@
           <option value="True">Completed</option>
           <option value="False">Not Completed</option>
         </select>
+      </div>
+
+<div id="search-add-wrapper">
+        <h5 for="due-date">Due Date:</h5>
+        <input style="border:2px solid black;" type="date" name="due-date">
+        <h5 for="cr-date">Creation Date:</h5>
+        <input style="border:2px solid black;" type="date" name="cr-date">
+      </div>
+
+<div id="search-add-wrapper">
         <input class="button" type="submit" value='Search'>
     </form>
     <a class="addbutton" href="{% url 'task-create' %}">+</a>
