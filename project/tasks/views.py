@@ -39,6 +39,7 @@ class Tasklist(LoginRequiredMixin,ListView):
     model = Task
     context_object_name = 'tasks'
     
+        
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tasks'] = context['tasks'].filter(user=self.request.user)
@@ -79,6 +80,6 @@ class TaskDelete(DeleteView):
     template_name = 'tasks/task_delete.html'
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
-    def get_queryset(self):
+    def get_priority(self):
         owner = self.request.user
         return self.model.objects.filter(user=owner)
