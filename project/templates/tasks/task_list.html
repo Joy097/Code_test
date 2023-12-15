@@ -1,0 +1,14 @@
+<h1>Hello, these are your tasks</h1>
+<table>
+  <tr>
+    <td>Items</td>
+  </tr>
+  {% for task in tasks %}
+  <tr>
+    <td>{{task.title}}</td>
+  </tr>
+
+  {%empty%}
+  <h3>nothing in the list</h3>
+  {% endfor %}
+</table>
