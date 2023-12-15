@@ -16,10 +16,16 @@
     <form method="GET" style="display: flex;">
         <input type='text' name='search-area' placeholder="Search your task" value="{{search_input}}">
         <select name="priority">
-          <option selected disabled=true>--Select Priority--</option>
-          <option>Low</option>
+          <option selected disabled=true>Select Priority</option>
+          <option value="Low">Low</option>
           <option>Medium</option>
           <option>High</option>
+        </select>
+
+        <select name="cmp">
+          <option selected disabled=true>Select Completeness</option>
+          <option value="True">Completed</option>
+          <option value="False">Not Completed</option>
         </select>
         <input class="button" type="submit" value='Search'>
     </form>
