@@ -5,8 +5,16 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Task
 from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView
 
+class Login(LoginView):
+    template_name = 'tasks/login.html'
+    fields = '__all__'
+    redirect_authenticated_user = True
 
+    def get_success_url(self):
+        return reverse_lazy('tasks')
+    
 class Tasklist(ListView):
     model = Task
     context_object_name = 'tasks'
