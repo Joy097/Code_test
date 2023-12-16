@@ -8,7 +8,7 @@
 
 <div class="card-body">
     <form method="POST" action="">
-        <img class="image" src="{{request.user.customer.profile_pic.url}}">
+        <img class="image" src="{{request.user.tasks.photos.url}}">
         {% csrf_token %}
         {{form.as_p}}
         <input class="button" type="submit" value="Submit">
