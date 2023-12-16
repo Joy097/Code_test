@@ -9,4 +9,4 @@ This is a Django Todo Application where you can register and login with your use
 5. There is a search option to search specific task
 
 ## Start application
-
+1. 
