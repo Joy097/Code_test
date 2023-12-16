@@ -5,9 +5,8 @@
     <a href="{% url 'tasks' %}">&#8592; Back</a>
 </div>
 {% if form.instance.photos %}
-    <div class="uploaded-photo">
-        <img src="{{ form.instance.photos.url }}" alt="Uploaded Photo">
-    </div>
+    <img src="{{ form.instance.photos.url }}" alt="Uploaded Photo" style="width: 550px; height:250px">
+    
 {% endif %}
 
 <div class="card-body">
