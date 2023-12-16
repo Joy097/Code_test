@@ -160,7 +160,9 @@ label {
 .card-body {
     padding: 20px;
 }
-
+.uploaded-photo{
+    width: 10px;
+}
 .dropdown {
     margin-left: 25px;
 }
