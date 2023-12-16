@@ -14,7 +14,7 @@ class Task(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     complete = models.BooleanField(default=False)
-    photos = models.URLField
+    photos = models.ImageField(null=True, blank=True)
     priority= models.CharField(max_length=6, choices=prior, default='Low')
     due = models.DateField()
     created = models.DateTimeField(auto_now_add=True)
