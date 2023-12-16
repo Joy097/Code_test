@@ -1,5 +1,5 @@
 # Todo list Django Application
-This is a Django Todo Application where you can register and login with your user credentials. You can
+This is a Django Todo Application where you can register and login with your user credentials. You can add tasks and manage them easily.
 
 ## Features
 1. Add new task with photos, priority, details and other informations
@@ -7,4 +7,6 @@ This is a Django Todo Application where you can register and login with your use
 3. when a task is completed, you can mark the task as completed
 4. You can delete a task if you want
 5. There is a search option to search specific task
+
+## Start application
 
