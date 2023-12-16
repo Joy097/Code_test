@@ -10,7 +10,7 @@ This is a Django Todo Application where you can register and login with your use
 
 ## Start application
 1. Open a repository in your local Device
-2. Pull the git repository with "  git clone git@github.com:Joy097 Code_test.git "
+2. Pull the git repository with "  git clone git@github.com:Joy097/Code_test.git "
 3. Now open the repository in you compiler
 4. run "env/Scripts/activate" to activate virtual environment
 5. Navigate to the project folder with "cd project"
