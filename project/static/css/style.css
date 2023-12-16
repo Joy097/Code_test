@@ -108,7 +108,7 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 5px 20px;
 }
 
 @media screen and (max-width:320px) {
@@ -159,4 +159,8 @@ label {
 
 .card-body {
     padding: 20px;
+}
+
+.dropdown {
+    margin-left: 25px;
 }

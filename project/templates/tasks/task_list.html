@@ -7,22 +7,25 @@
     </div>
 
     {% if request.user.is_authenticated %}
-    <a href="{% url 'logout' %}">Logout</a> {% else %}
-    <a href="{% url 'login' %}">Login</a> {% endif %}
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input class="button" type="submit" value="Logout">
+    </form>
+    {% endif %}
 </div>
 
 
 <div id="search-add-wrapper">
     <form method="GET" style="display: flex;">
         <input type='text' name='search-area' placeholder="Search your task" value="{{search_input}}">
-        <select name="priority">
+        <select class="dropdown" name="priority">
           <option selected disabled=true>Select Priority</option>
           <option value="Low">Low</option>
           <option>Medium</option>
           <option>High</option>
         </select>
 
-        <select name="cmp">
+        <select class="dropdown" name="cmp">
           <option selected disabled=true>Select Completeness</option>
           <option value="True">Completed</option>
           <option value="False">Not Completed</option>

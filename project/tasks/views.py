@@ -18,7 +18,7 @@ class Login(LoginView):
         return reverse_lazy('tasks')
     
 class Register(FormView):
-    template_name = 'base/register.html'
+    template_name = 'tasks/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('tasks')
@@ -57,6 +57,14 @@ class Tasklist(LoginRequiredMixin,ListView):
         selected_cmp = self.request.GET.get('cmp')
         if selected_cmp:
             context['tasks'] = context['tasks'].filter(complete=selected_cmp)
+            
+        selected_DD = self.request.GET.get('due-date')
+        if selected_DD:
+            context['tasks'] = context['tasks'].filter(due=selected_DD)
+            
+        selected_CD = self.request.GET.get('cr-date')
+        if selected_CD:
+            context['tasks'] = context['tasks'].filter(created=selected_CD)
 
         context['tasks'] = context['tasks'].order_by('priority')
         context['search_input'] = search_input
