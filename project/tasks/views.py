@@ -12,6 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from rest_framework.renderers import TemplateHTMLRenderer
 from .serializers import ItemSerializer
+from django.db.models import Case, When, Value, CharField
 
 class Login(LoginView):
     template_name = 'tasks/login.html'
@@ -70,7 +71,15 @@ class Tasklist(LoginRequiredMixin,ListView):
         if selected_CD:
             context['tasks'] = context['tasks'].filter(created=selected_CD)
 
-        context['tasks'] = context['tasks'].order_by('priority')
+        context['tasks'] = context['tasks'].order_by(
+            Case(
+                When(priority='Low', then=Value(3)),
+                When(priority='Medium', then=Value(2)),
+                When(priority='High', then=Value(1)),
+                default=Value(4),
+                output_field=CharField(),
+            )
+        )
         context['search_input'] = search_input
 
         return context
