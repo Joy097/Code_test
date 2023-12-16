@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import Tasklist, TaskCreate, TaskUpdate, TaskDelete, Login, Register, task
 from django.contrib.auth.views import LogoutView
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('register/', Register.as_view(), name='register'),
     path('login/', Login.as_view(), name='login'),
@@ -12,3 +13,5 @@ urlpatterns = [
     path('task-delete/<int:pk>/', TaskDelete.as_view(), name='task-delete'),
     path('record/<int:pk>', task, name='task'),
     ]
+
+urlpatterns +=
