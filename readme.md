@@ -14,4 +14,4 @@ This is a Django Todo Application where you can register and login with your use
 3. Now open the repository in you compiler
 4. run "env/Scripts/activate" to activate virtual environment
 5. Navigate to the project folder with "cd project"
-5. Now start the application using "python manage"
+5. Now start the application using "python manage.py runserver"
