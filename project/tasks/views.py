@@ -3,11 +3,15 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from .models import Task
+from rest_framework.response import Response
+from rest_framework.decorators import api_view, renderer_classes
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from rest_framework.renderers import TemplateHTMLRenderer
+from .serializers import ItemSerializer
 
 class Login(LoginView):
     template_name = 'tasks/login.html'
@@ -70,11 +74,6 @@ class Tasklist(LoginRequiredMixin,ListView):
         context['search_input'] = search_input
 
         return context
-
-    
-class TaskDetails(DetailView):
-    model = Task
-    context_object_name = 'task'
     
 class TaskCreate(CreateView):
     model = Task
@@ -100,3 +99,12 @@ class TaskDelete(DeleteView):
     def get_priority(self):
         owner = self.request.user
         return self.model.objects.filter(user=owner)
+  
+# Example of api_view
+  
+@api_view(['GET'])
+@renderer_classes([TemplateHTMLRenderer])
+def task(request, pk):
+    instance = Task.objects.get(pk=pk)
+    serialized = ItemSerializer(instance)
+    return Response({'data':serialized.data}, template_name='task_detail.html')
